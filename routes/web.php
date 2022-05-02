@@ -17,4 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/generar_codigo', [BarcodeController::class, 'index']);
+Route::get('/admin/generar_codigo', [BarcodeController::class, 'index'])
+->name('sistema');
+Route::get('/admin/productos', [BarcodeController::class, 'show']);
+Route::post('/admin/generar_codigo', [BarcodeController::class, 'cargar'])
+->name('generar_codigo');
+
+
+Route::get('ver', [BarcodeController::class, 'ver']);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
