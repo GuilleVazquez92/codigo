@@ -28,7 +28,7 @@
                 <td>{{$producto->peso}}</td>
                 <td>{{$producto->cantidad}}</td>
                 <td>{{$producto->created_at}}</td>
-                 <td><a href="/codigo/public/index.php/ver?codigo={{$producto->id}}">Ver</a></td>
+                 <td><a href="/ver?codigo={{$producto->id}}">Ver</a></td>
             </tr>
           @endforeach
         </tbody>
